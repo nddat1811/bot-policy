@@ -1,305 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bot - Manage Mail | Discord Gmail Bot</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-      color: #e8e6e3;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-      padding: 40px 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      background: linear-gradient(45deg, #4fc3f7, #29b6f6, #03a9f4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .header .subtitle {
-      font-size: 1.3rem;
-      color: #b0bec5;
-      margin-bottom: 20px;
-    }
-
-    .section {
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 12px;
-      padding: 30px;
-      margin-bottom: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(5px);
-    }
-
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: #4fc3f7;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .feature-item {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 15px;
-      border-radius: 8px;
-      border-left: 4px solid #4fc3f7;
-      transition: transform 0.2s ease;
-    }
-
-    .feature-item:hover {
-      transform: translateX(5px);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .highlight-box {
-      background: linear-gradient(135deg, rgba(79, 195, 247, 0.1), rgba(41, 182, 246, 0.1));
-      border: 1px solid rgba(79, 195, 247, 0.3);
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
-      text-align: center;
-      font-style: italic;
-    }
-
-    .security-list, .steps-list {
-      list-style: none;
-      margin-top: 15px;
-    }
-
-    .security-list li, .steps-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      position: relative;
-      padding-left: 30px;
-    }
-
-    .security-list li:before {
-      content: "🔐";
-      position: absolute;
-      left: 0;
-    }
-
-    .steps-list li:before {
-      content: counter(step-counter);
-      counter-increment: step-counter;
-      position: absolute;
-      left: 0;
-      background: #4fc3f7;
-      color: #000;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: bold;
-    }
-
-    .steps-list {
-      counter-reset: step-counter;
-    }
-
-    .commands-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .command-item {
-      background: rgba(0, 0, 0, 0.2);
-      padding: 15px;
-      border-radius: 8px;
-      border: 1px solid rgba(79, 195, 247, 0.2);
-    }
-
-    .command-item code {
-      background: rgba(79, 195, 247, 0.1);
-      color: #4fc3f7;
-      padding: 3px 6px;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .tech-tag {
-      background: rgba(79, 195, 247, 0.1);
-      border: 1px solid rgba(79, 195, 247, 0.3);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      color: #4fc3f7;
-    }
-
-    .link {
-      color: #4fc3f7;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease;
-    }
-
-    .link:hover {
-      border-bottom-color: #4fc3f7;
-    }
-
-    .privacy-link {
-      display: inline-block;
-      background: linear-gradient(45deg, #4fc3f7, #29b6f6);
-      color: #000;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 15px;
-      transition: transform 0.2s ease;
-    }
-
-    .privacy-link:hover {
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 15px;
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hướng dẫn Gmail Bot | Discord</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: #0f172a;
+        color: #f1f5f9;
+        padding: 40px;
+        max-width: 1000px;
+        margin: auto;
+        line-height: 1.7;
       }
-      
-      .header h1 {
-        font-size: 2rem;
+      h1 {
+        color: #38bdf8;
+        font-size: 2.2rem;
+        margin-bottom: 10px;
       }
-      
-      .features-grid, .commands-grid {
-        grid-template-columns: 1fr;
+      h2 {
+        margin-top: 2em;
+        color: #7dd3fc;
       }
+      code {
+        background: #1e293b;
+        color: #38bdf8;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+      .section {
+        margin-bottom: 40px;
+      }
+      .cmd-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 12px;
+        margin-top: 15px;
+      }
+      .cmd-item {
+        background: #1e293b;
+        border-left: 4px solid #38bdf8;
+        padding: 12px;
+        border-radius: 6px;
+      }
+      .cmd-item strong {
+        color: #facc15;
+      }
+      .note {
+        background: #1e3a8a;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText("nddat1811@gmail.com").then(() => {
+        alert("Đã copy email: nddat1811@gmail.com");
+      });
     }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>🤖 Discord Gmail Bot</h1>
-      <div class="subtitle">✉️ Manage Gmail right from Discord!</div>
-      <p><strong>Gmail Bot</strong> is a powerful Discord bot that lets you:</p>
-    </div>
+  </script>
+  <body>
+    <h1>💬 Hướng dẫn sử dụng Discord Gmail Bot</h1>
+    <p>
+      <strong
+        >Quản lý nhiều tài khoản Gmail trực tiếp trên Discord, hỗ trợ đọc - xoá
+        - phục hồi.</strong
+      >
+    </p>
+    <p
+      style="
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      "
+    >
+      <strong>Mọi góp ý hay điều chỉnh tính năng xin gửi về mail:</strong>
+      <code style="font-size: 0.95rem; padding: 4px 6px"
+        >nddat1811@gmail.com</code
+      >
+      <button
+        onclick="copyEmail()"
+        style="
+          padding: 5px 10px;
+          font-size: 0.85rem;
+          background-color: #38bdf8;
+          color: #000;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        "
+      >
+        📋 Copy
+      </button>
+    </p>
 
     <div class="section">
-      <h2>✨ Features</h2>
-      <div class="features-grid">
-        <div class="feature-item">Connect and authenticate your Gmail account</div>
-        <div class="feature-item">Read unread emails</div>
-        <div class="feature-item">View full email content by index</div>
-        <div class="feature-item">Delete unread emails, ads, or even entire inbox</div>
-        <div class="feature-item">Add custom labels to emails</div>
-        <div class="feature-item">Check and empty your trash folder</div>
-      </div>
-
-      <div class="highlight-box">
-        All actions are done inside Discord, securely and easily.<br/>
-        No need to switch tabs or share your credentials.
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>🔐 Security & Privacy</h2>
-      <ul class="security-list">
-        <li>The bot uses Google OAuth 2.0, so you authorize Gmail access yourself</li>
-        <li>No password is ever saved, and no unauthorized access is possible</li>
-        <li>Authentication tokens are securely stored per user, using encryption and isolation</li>
-        <li>You can revoke access anytime here: <a href="https://myaccount.google.com/permissions" class="link" target="_blank">👉 https://myaccount.google.com/permissions</a></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>⚙️ How to Use</h2>
-      <ol class="steps-list">
-        <li>Type <code>/connect_gmail</code> in any Discord channel</li>
-        <li>The bot will DM you an authorization link</li>
-        <li>Sign in with Gmail and copy the auth code</li>
-        <li>Send <code>/auth &lt;code&gt;</code> back to the bot</li>
-        <li>Once verified, you're ready to go with commands like:</li>
-      </ol>
-
-      <div class="commands-grid">
-        <div class="command-item">
-          <code>/read_unread</code> → View list of unread emails
+      <h2>🔐 Kết nối tài khoản Gmail</h2>
+      <div class="cmd-group">
+        <div class="cmd-item">
+          <code>/connect_gmail</code> – Nhận link xác thực Gmail qua DM
         </div>
-        <div class="command-item">
-          <code>/detail 1</code> → Show full content of email #1
-        </div>
-        <div class="command-item">
-          <code>/del_ads</code> → Delete all promotional emails
-        </div>
-        <div class="command-item">
-          <code>/tag Work</code> → Label inbox emails with "Work"
-        </div>
+        <div class="cmd-item"><code>/auth</code> – Nhập code để xác thực</div>
       </div>
     </div>
 
     <div class="section">
-      <h2>🧰 Technologies Used</h2>
-      <div class="tech-tags">
-        <div class="tech-tag">Python 3.x</div>
-        <div class="tech-tag">discord.py – Discord bot framework</div>
-        <div class="tech-tag">google-api-python-client – Gmail API integration</div>
-        <div class="tech-tag">oauthlib, pickle – Token management and secure storage</div>
-        <div class="tech-tag">Google Cloud Console – For public OAuth registration</div>
+      <h2>✨ Bảng điều khiển nhanh</h2>
+      <div class="cmd-group">
+        <div class="cmd-item">
+          <code>/run</code> – Bảng điều khiển thao tác <br />
+          <strong>del</strong> (Xóa vĩnh viễn) / <strong>trash</strong> (chuyển
+          thư vào thùng rác)
+        </div>
+        <div class="cmd-item">
+          <code>/run_read</code> – Bảng đọc mail, thống kê
+        </div>
       </div>
     </div>
 
     <div class="section">
-      <h2>📜 Privacy Policy & Terms</h2>
-      <p>See full policy here:</p>
-      <a href="#" class="privacy-link">Privacy Policy & Terms of Use</a>
-      
-      <ul class="security-list" style="margin-top: 20px;">
-        <li>We never store passwords</li>
-        <li>Only token-based access per user</li>
-        <li>Users can delete their access anytime</li>
-      </ul>
+      <h2>👨‍💻 Quản lý tài khoản Gmail</h2>
+      <div class="cmd-group">
+        <div class="cmd-item">
+          <code>/list</code> – Danh sách tài khoản Gmail đã kết nối
+        </div>
+        <div class="cmd-item">
+          <code>/switch 1</code> hoặc <code>/switch email@gmail.com</code> –
+          Chuyển tài khoản
+        </div>
+        <div class="cmd-item">
+          <code>/current</code> – Xem tài khoản đang sử dụng
+        </div>
+        <div class="cmd-item">
+          <code>/remove_account</code> – Xóa tài khoản Gmail
+        </div>
+        <div class="cmd-item">
+          <code>/status</code> – Thống kê toàn bộ tài khoản
+        </div>
+        <div class="cmd-item"><code>/refresh_tokens</code> – Làm mới token</div>
+      </div>
     </div>
-  </div>
-</body>
+
+    <div class="section">
+      <h2>📬 Đọc email</h2>
+      <div class="cmd-group">
+        <div class="cmd-item">
+          <code>/read_unread</code> – Xem email chưa đọc
+        </div>
+        <div class="cmd-item">
+          <code>/detail 1</code> – Xem nội dung email số 1
+        </div>
+        <div class="cmd-item">
+          <code>/mail_detail</code> – Phân tích labels bảo vệ
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🗑️ Xóa hoặc di chuyển email</h2>
+      <p>
+        Bot tự động <strong>bảo vệ email quan trọng</strong> như STARRED,
+        IMPORTANT, có custom label.
+      </p>
+
+      <h3>🔥 Xóa vĩnh viễn:</h3>
+      <div class="cmd-group">
+        <div class="cmd-item"><code>/delete_all</code> – Xóa tất cả email</div>
+        <div class="cmd-item">
+          <code>/del_unread</code> – Xóa email chưa đọc
+        </div>
+        <div class="cmd-item"><code>/del_ads</code> – Xóa email quảng cáo</div>
+        <div class="cmd-item">
+          <code>/del_old 30</code> – Xóa email cũ hơn 30 ngày
+        </div>
+      </div>
+
+      <h3>📁 Di chuyển vào trash:</h3>
+      <div class="cmd-group">
+        <div class="cmd-item"><code>/trash_all</code> – Toàn bộ email</div>
+        <div class="cmd-item"><code>/trash_unread</code> – Email chưa đọc</div>
+        <div class="cmd-item">
+          <code>/trash_old 30</code> – Email cũ hơn 30 ngày
+        </div>
+      </div>
+
+      <h3>🗑️ Thùng rác:</h3>
+      <div class="cmd-group">
+        <div class="cmd-item">
+          <code>/del_trash</code> – Xóa vĩnh viễn email trong trash
+        </div>
+        <div class="cmd-item"><code>/recover</code> – Khôi phục từ trash</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🛠️ Tiện ích khác</h2>
+      <div class="cmd-group">
+        <div class="cmd-item">
+          <code>/progress</code> – Kiểm tra tiến trình background
+        </div>
+        <div class="cmd-item">
+          <code>/tag work</code> – Gán nhãn "work" cho email
+        </div>
+      </div>
+      <div class="note">
+        Gõ <code>/help</code> trong Discord để xem tất cả lệnh.
+      </div>
+    </div>
+
+    <footer
+      style="
+        margin-top: 50px;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #94a3b8;
+      "
+    >
+      <p>
+        Liên hệ:
+        <a
+          href="mailto:nddat1811@gmail.com"
+          style="color: #38bdf8; text-decoration: none"
+          >nddat1811@gmail.com</a
+        >
+      </p>
+      <p>
+        <strong>BOT FREE</strong> cho mọi người dùng để xóa mail hàng loạt dễ
+        dàng!
+      </p>
+    </footer>
+  </body>
 </html>
